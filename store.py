@@ -28,7 +28,7 @@ class PostStore:
                 break
         return result
 
-    def update(self,id,fields):
+    def update(self, id, fields):
         post = self.get_by_id(id)
         post.name = fields["name"]
         post.photo_url = fields["photo_url"]
