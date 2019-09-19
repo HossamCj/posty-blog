@@ -16,29 +16,15 @@
         </header>
 
         <main id="add-section">
-            <h2>Create a New Post</h2>
+            <h2>Update <span style="color: dodgerblue">{{ post.name }}</span> post</h2>
 
-            <form action="{{ url_for('post_add') }}" method="POST">
-
+            <form action="{{url_for('post_update', id=post.id)}}" method="POST">
+                <input autofocus type="text" name="photo_url" value="{{ post.photo_url }}" placeholder="Please past photo url here!">
+                <input type="text" name="name" id="" placeholder="Enter author name here!" value="{{ post.name }}">
+                <textarea name="body" cols="30" rows="10" placeholder="Type your post content here!">{{ post.body }}</textarea>
                 <div>
-                    <label>Photo URL:</label>
-                    <input type="text" name="photo_url" value="{{ post.photo_url }}"/>
+                    <button>Update</button>
                 </div>
-
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="name" value="{{ post.name }}"/>
-                </div>
-
-                <div>
-                    <label>Body:</label>
-                    <textarea name="body" cols="40" rows="5" value="post.body"></textarea>
-                </div>
-
-                <div>
-                    <button>Create</button>
-                </div>
-
             </form>
 
         </main>
